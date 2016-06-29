@@ -13,7 +13,8 @@ public class CommandListener implements Listener {
 	@EventHandler
 	public void onPlayerCommandPreprocessEvent(PlayerCommandPreprocessEvent event) {
 		String msg = event.getMessage().toLowerCase();
-		if (msg != "hub" && msg != "lobby" && msg != "l" && msg != "exit" && msg != "leave") {
+		if (msg == "hub" || msg == "lobby" || msg == "l" || msg == "exit" || msg.contains("leave")) {
+		} else if (!event.getPlayer().hasPermission("miepcraftbedwars.commands.block.bypass")) {
 			event.setCancelled(true);
 		}
 	}
