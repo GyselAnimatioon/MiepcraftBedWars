@@ -1,0 +1,5 @@
+host: server.mineunity.eu
+port: 3306
+database: Mineunity47
+username: Mineunity47
+password: password

@@ -27,11 +27,12 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 
-		host = "server.mineunity.eu";
-		port = 3306;
-		database = "Mineunity47";
-		username = "Mineunity47";
-		password = "pw";
+		host = getConfig().getString("host");
+		port = getConfig().getInt("port");
+		database = getConfig().getString("database");
+		username = getConfig().getString("username");
+		password = getConfig().getString("password");
+		
 		try {
 			openConnection();
 			Statement statement = connection.createStatement();
@@ -91,6 +92,8 @@ public class Main extends JavaPlugin {
 		}
 
 		Bukkit.getServer().getPluginManager().registerEvents(new CommandListener(), this);
+		this.getConfig().options().copyDefaults(true);
+		saveConfig();
 	}
 
 	@Override
