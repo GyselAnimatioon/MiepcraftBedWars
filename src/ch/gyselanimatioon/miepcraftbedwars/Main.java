@@ -92,6 +92,7 @@ public class Main extends JavaPlugin {
 		}
 
 		Bukkit.getServer().getPluginManager().registerEvents(new CommandListener(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new QuitListener(), this);
 		this.getConfig().options().copyDefaults(true);
 		saveConfig();
 	}
